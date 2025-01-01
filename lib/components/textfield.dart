@@ -5,12 +5,11 @@ class MyTextfield extends StatelessWidget {
   final String hintText;
   final bool obscureText;
 
-  const MyTextfield({
-    super.key,
-    required this.controller,
-    required this.hintText,
-    required this.obscureText
-  });
+  const MyTextfield(
+      {super.key,
+      required this.controller,
+      required this.hintText,
+      required this.obscureText});
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +19,16 @@ class MyTextfield extends StatelessWidget {
         controller: controller,
         obscureText: false,
         decoration: InputDecoration(
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey.shade400),
-          ),
-          fillColor: Colors.grey.shade200,
-          filled: true,
-          hintText: hintText
-        ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.grey.shade400),
+            ),
+            fillColor: Colors.grey.shade200,
+            filled: true,
+            hintText: hintText,
+            hintStyle: TextStyle(color: Colors.grey[500])),
       ),
     );
   }

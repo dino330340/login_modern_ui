@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:login_modern_ui/components/button.dart';
 import 'package:login_modern_ui/components/textfield.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
   final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  void signUserIn() {}
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +31,35 @@ class LoginPage extends StatelessWidget {
                 style: TextStyle(color: Colors.grey[700], fontSize: 16),
               ),
               const SizedBox(height: 25,),
-              MyTextfield(),
-              const SizedBox(height: 25,),
-              MyTextfield(),
+              MyTextfield(
+                controller: usernameController,
+                hintText: 'Username',
+                obscureText: false,
 
+              ),
+              const SizedBox(height: 25,),
+              MyTextfield(
+                controller: passwordController,
+                hintText: 'Password',
+                obscureText: true,
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text('Forgot Password?',
+                    style: TextStyle(color: Colors.grey[600]
+                    ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              MyButton(onTap: signUserIn,
+              ),
+              const SizedBox(height: 20),
             ],
           ),
         ),
