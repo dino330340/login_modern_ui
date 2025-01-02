@@ -7,7 +7,7 @@ class MyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         padding: EdgeInsets.all(25),
         margin: EdgeInsets.symmetric(horizontal: 25),

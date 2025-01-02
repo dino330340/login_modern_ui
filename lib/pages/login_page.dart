@@ -4,17 +4,30 @@ import 'package:login_modern_ui/components/button.dart';
 import 'package:login_modern_ui/components/square_tile.dart';
 import 'package:login_modern_ui/components/textfield.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
+
   final passwordController = TextEditingController();
 
   void signUserIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const Center(
+          child: CircularProgressIndicator(color: Colors.blue,),
+        );
+      },
     );
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text, password: passwordController.text);
+    Navigator.pop(context);
   }
 
   @override
@@ -117,8 +130,9 @@ class LoginPage extends StatelessWidget {
                 spacing: 4,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Not a member?",
-                  style: TextStyle(color: Colors.grey[700]),
+                  Text(
+                    "Not a member?",
+                    style: TextStyle(color: Colors.grey[700]),
                   ),
                   Text(
                     "Register now",
