@@ -5,7 +5,8 @@ import 'package:login_modern_ui/components/square_tile.dart';
 import 'package:login_modern_ui/components/textfield.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  void Function()? onTap;
+  LoginPage({super.key, required this.onTap});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -162,10 +163,13 @@ class _LoginPageState extends State<LoginPage> {
                     "Not a member?",
                     style: TextStyle(color: Colors.grey[700]),
                   ),
-                  Text(
-                    "Register now",
-                    style: TextStyle(
-                        color: Colors.blue, fontWeight: FontWeight.bold),
+                  GestureDetector(
+                    onTap: widget.onTap,
+                    child: Text(
+                      "Register now",
+                      style: TextStyle(
+                          color: Colors.blue, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ],
               )
